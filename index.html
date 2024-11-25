@@ -138,21 +138,26 @@ add_items(10)</pre></code>
 
 <h2>O(log n) - divide and conquer the input size</h2>
 
-<p>With O(log n) - the input size can vary between 1 and a Billion+ data points. The important factor is that your algorithm should identify the correct output for any given N, such that as long as the input is ordered, any N can be found within the dataset.</p>
+<b>With O(log n)</b> the input size can vary between 1 and a Billion+ data points. 
 
-<p>O(log n) is represented on a graph as a very close approximation to O(1). It is linear up until only a certain point. O(log n) algorithms behave proportionally as with the rest of O(n)'s, but are <strong>NOT</strong> O(1).
+<p>The important factor is that your algorithm should identify the correct output for any given N, such that as long as the input is ordered, any N can be found within the dataset.</p>
 
-<b>Mathmathically O(log n) is structured as follow</b>
+<b>O(log n)</b> is represented on a graph as a very close approximation to <i>O(1)</i>. 
+
+<p>It is linear up until only a certain point. O(log n) algorithms behave proportionally as with the rest of O(n)'s, but are <strong>NOT</strong> O(1).</p>
+
+<b>Mathmathically O(log n) is structured as follows</b>
 <ol type="1">
- <li>Suppose you have an ordered list and our N to identify is <em>1</em> itself, while keeping track of how many operations it takes to reach N. Please keep track of each <b>*</b> in the example below.</li>
+ <li>Suppose you have an ordered list and our N to identify is<b>1</b> itself, while keeping track of how many operations it takes to reach N.</li>
+<p>Keep track of each<b>*</b> in the example below.</p>
  <li>Now divide this list into half.<li>
-<p>[1][2][3][4] [5][6][7][8]</p>
+<p><b>[1][2][3][4]</b> <b>[5][6][7][8]</b></p>
  <li>Remove half of what does not meet the requirements to identify N as 1. Specifically, all the elements from 5-8.</li>
-<p>[1*][2][3][4] [5][6][7][8]</p>
+<p><b>[1*][2] [3][4]</b></p>
  <li>Remove half of what remains in the new list. Specifically, the elements 3 and 4.</li>
-<p>[1*][2] [3][4]</p>
-  <li>Remove the last item in the list to arrive at N=1. Specifically, the last element being 2.</li>
-<p>[1*] [2]</p>
+<p><b>[1*] [2]</b></p>
+  <li>Remove the last item in the list to arrive at N=1. Specifically, the last element, 2.</li>
+<p><b>[1*]</b></p>
   <li>N is now 1. This means we have arrived at our solution for O(log n).</li>
 </ol>
 <p> When you count all three of the <b>*</b>'s -- this denotes the number of operations used to arrive at O(log n) -> 2^3 = 8</p>
