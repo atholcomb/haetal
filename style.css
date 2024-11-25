@@ -1,0 +1,74 @@
+html {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #F5F5F5;
+}
+
+h1, h2 {
+  color: #f5c242;
+}
+
+h3, p, li {
+  color: black;
+}
+
+b {
+  padding-left: 5px;
+}
+
+.content-centered {
+  background-color: #F5F5F5;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.header {
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  float: center;
+}
+
+/* The navigation menu */
+.navbar {
+  overflow: hidden;
+  color: #f5c242;
+}
+
+/* Navigation links */
+.navbar a {
+  background-color: black;
+  font-size: 30px;
+  color: #f5c242;
+  text-align: center;
+  text-decoration: none;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+/* Add a red background color to navigation links on hover */
+.navbar a:hover, .subnav:hover .subnavbtn {
+  background-color: black;
+  float: center;
+  border-radius: 10px;
+  font-size: 30px;
+}
+
+table, th, td {
+  border: 2px solid #f5c242;
+  border-collapse: collapse;
+  color: black;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+pre code {
+  font-size: 15px;
+  border-radius: 10px;
+}
+
+/* Clear all floats navbar and header */
+.header, .navbar {
+  clear: both;
+}

@@ -1,0 +1,181 @@
+<html>
+  <title>Haetal BigO Blog</title>
+
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"rel="stylesheet">
+    <link rel="stylesheet" href="style.css" type="text/css"></link>
+  
+    <!-- highlightjs css + script cdn files -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/qtcreator-light.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
+
+    <!-- Load font awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
+  </head>
+  <body>
+
+  <!-- Center all content inside the body -->  
+  <div class="content-centered">
+  
+  <!-- Bookstyle Header -->
+  <div class="header">
+    <h1>Haetal</h1>
+    <h3>Algorithms With BigO Make Us Better Engineers</h3>
+  </div> <!-- END header -->
+ 
+   <!-- Top Navigation bar -->
+    <div class="navbar" style="text-align:center;display:block;">
+        <a href="https://haetal.net">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+    </div> <!-- END Navbar -->
+
+<h1>BigO Notation</h1>
+
+<h3>Describes time complexity and space complexity of code and it's efficiency.</h3>
+
+<strong style="color: #f5c242;">More specifically:</strong>
+<u style="color: black;">Big O notation is used to classify algorithms according to how their run time or space requirements grow as the input size grows.</u>
+
+<i><p><cite>Cormen, Thomas H.; Leiserson, Charles E.; Rivest, Ronald L. (1990). "Growth of Functions". Introduction to Algorithms (1st ed.). MIT Press and McGraw-Hill. pp. 23–41. ISBN 978-0-262-53091-0.</i></cite></p>
+
+<h3>BigO is represented as three cases:</h3>
+
+<table>
+  <tr>
+    <td style="white-space: nowrap;">Case</td>
+    <td style="white-space: nowrap;">Symbol</td>
+    <td style="white-space: nowrap;">Meaning</td>
+  </tr>
+  <tr>
+    <td>Omega</td>
+    <td style="text-align: center;">&Omega;</td>
+    <td>Represents the best-case performance of an algorithm, or the lower bound on how fast it can run. It's used to say that an algorithm takes at least a certain amount of time.
+</td>
+  <tr>
+    <td>Theta</td>
+    <td style="text-align: center;">&Theta;</td>
+    <td>Represents the average performance of an algorithm, or the average time complexity. It's used to describe both the upper and lower bound of a function.</td>
+  <tr>
+    <td>Omicron</td>
+    <td style="text-align: center;">&Omicron;</td>
+    <td>Represents the worst-case performance of an algorithm, or the upper bound on how slow it can run. It's used to clas    sify algorithms according to how their run time or space requirements grow as the input size grows.</td>
+</table>
+
+<h2>Time Complexity</h2>
+
+<p>Describes the efficiency of our code in relation to the number of operations when the code runs.</p>
+
+<h2>Space Complexity</h2>
+
+<p>Describes the efficiency of our code in relation to space that our code uses (specifically Memory) in order to run.</p>
+
+<h2>O(n)</h2>
+
+<p><strong>O(n) is called proportional time complexity.</strong></p>
+ 
+<p><i>O(2n)</i> and any Coefficient is always dropped to O(n)</i></p>
+
+<p>It is a straight line at an angle that tells us that every operation is proportional to the one before it.</p>
+
+<b>Code for O(n) looks as follows</b>
+<pre><code id="sourcecode" class="python">def print_items(n):
+  for i in range(n):  # this is O(n)
+    print(i)
+        
+print_items(10)</code></pre>
+
+<h2>O(n^2)</h2>
+
+<p><strong>O(n^2) is also a proportional time complexity</strong></p>
+
+<p>It is a steeper straight line at an angle that is less proportional than the one before it.</p>
+
+<p>This is less efficient than O(n) as it is essentially <i>n * n = n^2</i></p>
+<b>Code for O(n^2) looks as follows</b>
+<pre><code id="sourcecode" class="python">def print_items(n):
+  for i in range(n):
+    for j in range(n):
+      print(i, j)  # n(10) * n(10) - will print 0-99 integers
+
+print_items(10)</code></pre>
+
+<h2>Drop Non-Dominants</h2>
+
+<p>With BigO notation, when a piece code has two or more loop constructs which contend with the efficiency of the algorithm, the best practice is to drop the "Non-Dominant" N.</p>
+<b>Code for Non-Dominants looks as follows</b>
+<pre><code id="sourcecode" class="python">def print_items(n):
+  for i in range(n):
+    for j in range(n):
+      print(i, j)  # the two loops here are O(n^2)
+            
+  for k in range(n):
+    print(k)       # this loop is O(n)
+        
+                   # together O(n^2) + O(n) -> O(n^2)
+                   # Dropping O(n) simplifies our BigO notation
+        
+print_items(10)</pre></code>
+
+<h2>O(1) - The most efficient BigO</h2>
+
+<p><strong>O(1) is called constant time</strong></p>
+
+<p>The number of operations will remain constant, even if we have two or more operations.</p>
+
+<ol type="1">
+ <li>Any time you can make any piece of code O(1) that is the most optimal case.</li>
+ <li>As (n) increases we are NOT increasing the number of operations.</li>
+</ol>
+<b>Code for O(1) looks as follows</b>
+<pre><code id="sourcecode" class="python">def add_items(n):
+  return n + n + n
+         1ops  + 2ops == always will equal O(1), even with 10 or 1Million items
+
+add_items(10)</pre></code>
+
+<h2>O(log n) - divide and conquer the input size</h2>
+
+<p>With O(log n) - the input size can vary between 1 and a Billion+ data points. The important factor is that your algorithm should identify the correct output for any given N, such that as long as the input is ordered, any N can be found within the dataset.</p>
+
+<p>O(log n) is represented on a graph as a very close approximation to O(1). It is linear up until only a certain point. O(log n) algorithms behave proportionally as with the rest of O(n)'s, but are <strong>NOT</strong> O(1).
+
+<b>Mathmathically O(log n) is structured as follow</b>
+<ol type="1">
+ <li>Suppose you have an ordered list and our N to identify is <em>1</em> itself, while keeping track of how many operations it takes to reach N. Please keep track of each <b>*</b> in the example below.</li>
+ <li>Now divide this list into half.<li>
+<p>[1][2][3][4] [5][6][7][8]</p>
+ <li>Remove half of what does not meet the requirements to identify N as 1. Specifically, all the elements from 5-8.</li>
+<p>[1*][2][3][4] [5][6][7][8]</p>
+ <li>Remove half of what remains in the new list. Specifically, the elements 3 and 4.</li>
+<p>[1*][2] [3][4]</p>
+  <li>Remove the last item in the list to arrive at N=1. Specifically, the last element being 2.</li>
+<p>[1*] [2]</p>
+  <li>N is now 1. This means we have arrived at our solution for O(log n).</li>
+</ol>
+<p> When you count all three of the <b>*</b>'s -- this denotes the number of operations used to arrive at O(log n) -> 2^3 = 8</p>
+
+<script>
+  hljs.initHighlightingOnLoad();
+
+  $(function() {
+    $.ajax({
+      type: 'GET',
+      url: '/api/1/strategy/source/json/{{ name }}',
+      dataType: "json",
+
+      success: function (response) {
+        console.log(response);
+        $("#sourcecode").html(response);
+        $('pre code').each(function(i, block) {
+          hljs.highlightBlock(block);
+        });
+      }
+    });
+  });
+</script>
+    </div> <!-- END content-centered -->
+  </body>
+</html>
